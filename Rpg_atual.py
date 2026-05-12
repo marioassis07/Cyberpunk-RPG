@@ -1,8 +1,13 @@
-
 #-------- INICIO ----------
 import time
 import random
+import artes
+
+
+
+
 def titulo ():
+    
     print("Bem vindo a Cyberpunk RPG!")
     time.sleep(1)
     print("Você deseja viver como um zé ninguém ou morrer como uma lenda?")
@@ -10,7 +15,7 @@ def titulo ():
     print("Está pronto pra ter uma vida miserável?")
     time.sleep(1)
     start = input("Digite sim para começar: ")
-    if start != "sim" or "s" or "Sim":
+    if start not in ["sim", "s", "Sim", "S"]:
         time.sleep(1)
         print("Você não tem escolha, prepare-se para o inferno! "
         "Ass: M.E.R.C")
@@ -30,6 +35,7 @@ def iniciar_jogo ():
     return nome_player, lvl, exp, status
 #-------- História --------
 def comeco_historia():
+    import artes
     print("\nVocê acorda em um ferro velho.")
     time.sleep(2)
     print("\nA luz do sol te cega por alguns segundos, até realmente ver uma pilha de corpos logo adiante.")
@@ -66,6 +72,8 @@ def comeco_historia():
     time.sleep(2)
     print("\nVocê olha um pouco mais ao seu redor e percebe que está na Zona de Exclusão Beta")
     time.sleep(2)
+    print(artes.zona_beta)
+    time.sleep(2)
     print("\nLocal onde a M.E.R.C. tentou implantar varios sistemas militares, mas por conta de um erro, houve uma grande detonação de bombas")
     time.sleep(2)
     print("\nDesde então, é apenas um local sem natureza, somente lixo, pobres e ladrões, todos buscando sobreviver.")
@@ -87,9 +95,19 @@ def comeco_historia():
     print("\n>>> PROTOCÓLO: Derrote os inimigos e chegue ao nível 5")
     time.sleep(2)
 
+
 def evento_raka():
     print("\n...")
     time.sleep(2)
+    print("\n Depois de fazer uma chacina no local, você foge em direção a cidade")
+    time.sleep(2)
+    print(artes.cidade)
+    time.sleep(2)
+    print("Ômega City")
+    time.sleep(2)
+    print("Ao chegar em Ômega City, você para em frente uma loja, bem familiar")
+    time.sleep(2)
+    print(artes.andando_cidade)
     print("\nVocê sente uma mão te puxar pra dentro de um beco escuro.")
     time.sleep(2)
     print("\nUma mulher de olhos cibernéticos te encara. Ela parece te reconhecer.")
@@ -127,6 +145,10 @@ def evento_raka():
 
 def evento_setor7():
     print("\n...")
+    time.sleep(2)
+    print("\nHá uma pilha de corpos na sua frente")
+    time.sleep(2)
+    print(f"\n{nome_player} Mário, melhor sair daqui, antes que alguem descubra quem os matou")
     time.sleep(2)
     print("\nVocê chega ao Setor 7.")
     time.sleep(2)
@@ -253,7 +275,7 @@ def classe ():
     while True: 
         clas = input(f"Qual será a classe de {nome_player} ? ")
         if clas == "1":
-            print("Um guerreiro das ruas que trocou a honra pelo cromo. Move rápido, lâmina afiada e sem misericórdia. Usa uma Katana Cromada para cortar  e Estimulantes para aguentar.")
+            print("Um guerreiro das ruas que trocou a honra pelo cromo.  Usa uma Katana Cromada de alta frequência, para cortar qualquer coisa")
             time.sleep(2)
             print("Descrição de habilidades: \n Zandatsu: Capacidade de parar o tempo e fatiar o inimigo quantas vezes quiser.")
             time.sleep(2)   
@@ -548,9 +570,11 @@ def calculo_lvl(lvl, exp, hp, hp_max, forca, exp_inimigo):
 #EXECUÇÃO DO JOGO (PARTE FINAL)
 # ==========================================
 
-# 1. ---------Título e Criação----------
-#
-titulo()
+# 1. ---------Título e Criação-------
+print(artes.logo)
+#titulo()
+
+    
 
 nome_player, lvl, exp, status = iniciar_jogo()
 
@@ -571,7 +595,7 @@ chance_combo_base = chance_combo
 #3.-------------- História -------------
 ato = 1
 raka_ativa = False
-comeco_historia() 
+zona_beta = comeco_historia() 
 #4-------------COMBATE------------------
 jogador_enfrentando_inimigo = False
 
