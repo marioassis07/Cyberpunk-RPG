@@ -34,6 +34,7 @@ def iniciar_jogo ():
 
     return nome_player, lvl, exp, status
 #-------- História --------
+#cap1
 def comeco_historia():
     import artes
     print("\nVocê acorda em um ferro velho.")
@@ -42,6 +43,10 @@ def comeco_historia():
     time.sleep(2)
     print("\nSua arma, ao seu lado, tão cromada, que chega a ser doentio, totalmente suja de sangue.")
     time.sleep(2)
+    if clas == "1":
+        time.sleep(3)
+        print(artes.katana)
+        time.sleep(4)
     print(".")
     time.sleep(2)
     print("..")
@@ -94,8 +99,7 @@ def comeco_historia():
     time.sleep(2)
     print("\n>>> PROTOCÓLO: Derrote os inimigos e chegue ao nível 5!!")
     time.sleep(2)
-
-
+#cap2
 def evento_raka():
     print("\n...")
     time.sleep(2)
@@ -148,7 +152,7 @@ def evento_raka():
     print("\nMas, antes mesmo de você pensar, a gangue te ataca")
     time.sleep(2)
     print('>>> PROTOCÓLO: Derrote os inimigos e chegue ao nível 10!!')
-
+#cap3
 def evento_setor7():
     print("\n...")
     time.sleep(2)
@@ -208,7 +212,7 @@ def evento_setor7():
     time.sleep(3)
     print("\n>>> DIRETIVA: Elimine os agentes da Omnicorp e da M.E.R.C. e chegue ao nível 15. <<<")
     time.sleep(2)
-
+#boss fight
 def evento_raka_chefe():
     print("\n...")
     time.sleep(3)
@@ -268,7 +272,7 @@ def evento_raka_chefe():
     time.sleep(2)
     print(">>> HP: 200 | FORÇA: 20 | AGILIDADE: 16 <<<")
     time.sleep(3)
-
+#fim de jogo
 def evento_final():
     print("\n...")
     time.sleep(2)
@@ -402,7 +406,7 @@ def aplicar_classe(clas):
     return hp, hp_max, forca, agil, inventario, chance_combo, cura_bonus, crit_classe
 # -------- CYBER SAMURAI --------
 def usar_zandatsu():
-    global zandatsu_disponivel, zandatsu_ativo
+    global zandatsu_disponivel, zandatsu_ativo #permite que uma variavel seja modificada dentro dessa função
     if not zandatsu_disponivel:
         time.sleep(1)
         print("\n[!] Zandatsu já foi usado nesse combate.")
@@ -428,7 +432,7 @@ def usar_amolador(amolador_ativo):
 def usar_seringa(hp, hp_max, seringa_criticos):
     if seringa_criticos > 0:
         time.sleep(1)
-        print(f"\n[!] Seringa já está ativa por mais {seringa_criticos} ataques.")
+        print(f"\n[!] Seringa já está ativa por mais {seringa_criticos} ataques.") # faz com que a seringa só ative 1 vez
         return hp, seringa_criticos
     time.sleep(1)
     print("\nVocê injeta a seringa no braço e grita de dor.")
@@ -463,15 +467,15 @@ def usar_viral(viral_ativo):
     return True
 #sistema de esquivas
 def tentar_esquiva(agil):
-    chance = min(agil * 0.04, 0.30)  # 4% por ponto, máximo 30%
+    chance = min(agil * 0.04, 0.30)  # a chance da esquiva aumenta 4% por ponto de agilidade, máximo 30%
     return random.random() < chance
 
 # --------- Sorteio de inimigos --------------
 def sorteio_inimigo(lvl):
-    fracos = [["Ladrão", 1, 15, 1, 2], ["Nomade", 1, 20, 2, 1], ["Robô", 3, 30, 3, 1]]
-    rua =    [["Ghostwire", 5, 35, 4, 2], ["Cyberpsicopata", 5, 45, 7, 3], ["Sucateiro", 2, 25, 5, 1]]
-    omni =   [["Drone Omnicorp", 2, 40, 10, 2], ["Agente Omnicorp", 3, 55, 12, 3], ["Pacificador Omnicorp", 6, 70, 14, 2]]
-    merc =   [["Soldado M.E.R.C.", 2, 50, 12, 2], ["General M.E.R.C.", 3, 65, 14, 2], ["Exterminador M.E.R.C.", 4, 80, 16, 2]]
+    fracos = [["Ladrão", 1, 15, 1, 2], ["Nomade", 1, 20, 2, 1], ["Robô", 3, 30, 3, 1]] #inimigos cap1
+    rua =    [["Ghostwire", 5, 35, 4, 2], ["Cyberpsicopata", 5, 45, 7, 3], ["Sucateiro", 2, 25, 5, 1]]#inimigos cap 2
+    omni =   [["Drone Omnicorp", 2, 40, 10, 2], ["Agente Omnicorp", 3, 55, 12, 3], ["Pacificador Omnicorp", 6, 70, 14, 2]]#inimigos cap 3
+    merc =   [["Soldado M.E.R.C.", 2, 50, 12, 2], ["General M.E.R.C.", 3, 65, 14, 2], ["Exterminador M.E.R.C.", 4, 80, 16, 2]]#inimigos cap3
 
     if lvl < 5:
         return random.choice(fracos)
@@ -487,8 +491,8 @@ def ataque(atacante_nome, atacante_forca, defensor_nome, defensor_forca, crit_cl
     atacante_sorte = random.randint(1, 10)
     defensor_sorte = random.randint(1, 10)
 
-    critico = atacante_sorte >= crit_classe
-    mitigar = defensor_sorte == 10
+    critico = atacante_sorte >= crit_classe #o crítico será contabilizado se o dado for maior ou igual os pontos de critico
+    mitigar = defensor_sorte == 10 # se o defensor atigir o dado 10, o dano vai ser diminuido
     
     dano = max(1, atacante_forca + atacante_sorte - defensor_forca )# dano só vai até 1, para não ter dano 0 sem aviso
     
@@ -496,9 +500,9 @@ def ataque(atacante_nome, atacante_forca, defensor_nome, defensor_forca, crit_cl
     if mitigar:
         dano = int(dano // 2)
         dano = max(1, dano)
-        dano = int(dano)
+        dano = int(dano) #diminui o dano na metade, com minimo 1 de dano
     if critico:
-        dano *= 2
+        dano *= 2 #critico causa dobro de dano
 
     if atacante_sorte > 0:
         time.sleep(1)
@@ -520,7 +524,7 @@ def tentar_combo(chance):
 #sistema de uso de itens
 def usar_item(jogador_inventario, jogador_hp, hp_maximo, cura_bonus=0):
     hack_ativado = False
-    if not jogador_inventario:
+    if not jogador_inventario: # se não tiver itens no inventario aparecerá a mensagem
         time.sleep(1)
         print("\n[!] Inventário vazio.")
         return jogador_hp, False
@@ -528,7 +532,7 @@ def usar_item(jogador_inventario, jogador_hp, hp_maximo, cura_bonus=0):
     print(f"\n--- INVENTÁRIO ---")
     time.sleep(1)
     for index, item in enumerate(jogador_inventario):
-        print(f"{index + 1}. {item}")
+        print(f"{index + 1}. {item}") # vai numerar os itens no inventario
 
     try:
         escolha = int(input("\nEscolha o item (0 para voltar): "))
@@ -540,7 +544,7 @@ def usar_item(jogador_inventario, jogador_hp, hp_maximo, cura_bonus=0):
 
         if "Estimulante" in item_escolhido:
             cura = 5 + cura_bonus  # BioHacker cura 8, outros curam 5
-            jogador_hp = min(hp_maximo, jogador_hp + cura)
+            jogador_hp = min(hp_maximo, jogador_hp + cura) #soma a vida atual com a cura e não passa do maximo de hp
             time.sleep(1)
             print(f"[*] Você injetou {item_escolhido}. HP atual: {jogador_hp}")
             jogador_inventario.pop(escolha - 1)
@@ -554,14 +558,14 @@ def usar_item(jogador_inventario, jogador_hp, hp_maximo, cura_bonus=0):
 
     except (ValueError, IndexError):
         time.sleep(1)
-        print("[!] Opção inválida.")
+        print("[!] Opção inválida.") # se o jogador escrever o numero errado vai dar mensagem de erro, evitando a quebra do jogo
 
     return jogador_hp, hack_ativado
 
 #Sistema de drop de itens
 def obter_kit():
-        chance = random.random()
-        if chance <= 0.4:
+        chance = random.random() # drop de cura
+        if chance <= 0.40: 
             time.sleep(1)
             print("Você obteve Estimulante")
             return "Estimulante"
@@ -573,7 +577,7 @@ def obter_kit():
 def calculo_lvl(lvl, exp, hp, hp_max, forca, exp_inimigo):
     global ato
     exp += exp_inimigo
-    exp_necessaria = 20 * lvl
+    exp_necessaria = 20 * lvl # faz com que o nível suba a cada luta
    
 
     if exp >= exp_necessaria:
@@ -594,15 +598,14 @@ def calculo_lvl(lvl, exp, hp, hp_max, forca, exp_inimigo):
         elif lvl == 4:
             time.sleep(1)
             print("\n>>> Você começa a recuperar fragmentos. Flashes. Rostos que não reconhece. <<<")
-        if lvl == 5 and ato == 1:
-                evento_raka()
+    if lvl == 5 and ato == 1: # faz a mudança de capítulos
+              evento_raka()
                 
-        if lvl == 10 and ato == 2:
-                ato = 2
-                evento_setor7()
-                time.sleep(1)
-                print("\n>>> DIRETIVA: Elimine os agentes da Omnicorp e chegue ao nível 15. <<<")
-
+    if lvl == 10 and ato == 2:
+        ato = 2
+        evento_setor7()
+        time.sleep(1)
+    
     return lvl, exp, hp, hp_max, forca
 
 
@@ -613,7 +616,7 @@ def calculo_lvl(lvl, exp, hp, hp_max, forca, exp_inimigo):
 # ==========================================
 
 # 1. ---------Título e Criação-------
-print(artes.logo)
+print(artes.logo) # traz os dados de outro arquivo e printa
 titulo()
 
 nome_player, lvl, exp, status = iniciar_jogo()
@@ -630,23 +633,23 @@ amolador_ativo = 0
 seringa_criticos = 0        
 toxina_ativa = 0            
 viral_ativo = False         
-hack_ativo = False
+hack_ativo = False #tudo é falso pq o combate precisa iniciar sem nenhum efeito
 chance_combo_base = chance_combo 
 #3.-------------- História -------------
 ato = 1
-raka_ativa = False
+raka_ativa = False # o boss sempre está aqui, mas desativado
 zona_beta = comeco_historia() 
 #4-------------COMBATE------------------
-jogador_enfrentando_inimigo = False
+jogador_enfrentando_inimigo = False #inicio do loop de combate, está false pois não há inimigo
 
 while True:
     if not jogador_enfrentando_inimigo:
-        if lvl >= 15 and not raka_ativa:
+        if lvl >= 15 and not raka_ativa: #se o jogador chegar ao level 15, o boss será ativado
             evento_raka_chefe()
             raka_ativa = True
             raka_hp = 200
 
-        if raka_ativa:
+        if raka_ativa: # status do boss
             inimigo_nome = "Syn"
             inimigo_forca = 20
             inimigo_agil = 6
@@ -654,7 +657,7 @@ while True:
             inimigo_lvl = 16
             inimigo_exp_valor = 0
         else:
-            inimigo_sorteado = sorteio_inimigo(lvl)
+            inimigo_sorteado = sorteio_inimigo(lvl) #se não for o boss, o sorteio funcionará normalmente com os inimigos
             inimigo_nome = inimigo_sorteado[0]
             inimigo_lvl = inimigo_sorteado[1]
             inimigo_hp = inimigo_sorteado[2]
@@ -666,7 +669,7 @@ while True:
         inimigo_hp_salvo = inimigo_hp
         hp_salvo = hp
         forca_salva = forca
-        inventario_salvo = inventario.copy()
+        inventario_salvo = inventario.copy() #salva o inventario no inicio de todo combate, para o tente novamente
         time.sleep(1)
         print(f"\n[!] {inimigo_nome} aparece!")
         time.sleep(1)
@@ -686,27 +689,27 @@ while True:
         print("Digite um número válido!")
         continue
 
-    max_combos = 3
+    max_combos = 3 # o combo só pode ser feito 3 vezes seguidas
     combos_feitos = 0
 
     if opcao == 1:
         time.sleep(1)
         print("-------- SUA VEZ --------")
         #habilidade amolador
-        forca_atual = forca + (3 if amolador_ativo > 0 else 0)
+        forca_atual = forca + (3 if amolador_ativo > 0 else 0) # causa o triplo de dano com o amolador
     
     # aplica seringa 
         if seringa_criticos > 0:
             crit_classe_atual = 1  # sempre crítico
-            seringa_criticos -= 1
+            seringa_criticos -= 1 # diminui a quantidade de criticos restantes
         else:
-            crit_classe_atual = crit_classe
+            crit_classe_atual = crit_classe # quando acaba, o critico volta ao normal
         if tentar_esquiva(inimigo_agil):
             time.sleep(1)
             print(f"{inimigo_nome} esquivou do seu ataque!")
         else:
             dano_p, dado_p, critico = ataque(nome_player, forca_atual, inimigo_nome, inimigo_forca, crit_classe_atual)
-            if zandatsu_ativo and critico:  # crítico aconteceu
+            if zandatsu_ativo and critico:  # crítico aconteceu e o zandatsu está ativo
                 time.sleep(1)
                 print("\nO tempo congela.")
                 time.sleep(1)
@@ -727,14 +730,14 @@ while True:
                 combos_feitos += 1
                 time.sleep(1)
                 print(f"ATAQUE EXTRA! (Combo x{combos_feitos})")
-                chance_combo *= 0.7
+                chance_combo *= 0.7 
                 if inimigo_hp <= 0:
-                    if raka_ativa:
+                    if raka_ativa:#quebra o combro se o jogo chegar ao final
                         evento_final()
                         break
                     else:
                         time.sleep(1)
-                        print(f"O {inimigo_nome} foi destruído no combo!")
+                        print(f"O {inimigo_nome} foi destruído no combo!") # quebra o combo se o inimigo morrer com combo ativo
                         jogador_enfrentando_inimigo = False
                         item_dropado = obter_kit()
                         if item_dropado:
@@ -746,10 +749,10 @@ while True:
 
         if inimigo_hp <= 0:
             time.sleep(1)
-            print(f"O {inimigo_nome} foi destruído!")
+            print(f"O {inimigo_nome} foi destruído!") # descontinua o combate e volta pro loop
             if raka_ativa:
                 evento_final()
-                break
+                break # se for o boss vai quebrar o loop de combate e partir para o fim do jogo
             else:
                 jogador_enfrentando_inimigo = False
                 time.sleep(1)
@@ -762,14 +765,14 @@ while True:
                 viral_ativo = False 
                 hack_ativo = False
                 item_dropado = obter_kit()
-                if item_dropado:
-                    inventario.append(item_dropado)
+                if item_dropado: 
+                    inventario.append(item_dropado) # todo esse bloco vai resetar os dados ao terminar cada combate e depois volta ao loop
 
                 lvl, exp, hp, hp_max, forca = calculo_lvl(lvl, exp, hp, hp_max, forca, inimigo_exp_valor)
                 continue
         else:
                 time.sleep(1)
-                print(f"-------- VEZ DO {inimigo_nome} --------")
+                print(f"-------- VEZ DO {inimigo_nome} --------") # se o inimigo não morrer, vai continuar o loop de combate para o inimigo
                 # Toxina
                 if toxina_ativa > 0:
                     time.sleep(1)
@@ -781,7 +784,7 @@ while True:
 
                 if viral_ativo:
                     print(f"[*] {inimigo_nome} está sob controle do vírus e se ataca!")
-                    dano_viral, _, _ = ataque(inimigo_nome, inimigo_forca, inimigo_nome, inimigo_forca, 10)
+                    dano_viral, _, _ = ataque(inimigo_nome, inimigo_forca, inimigo_nome, inimigo_forca, 10) # o dano do inimigo vai ser aplicado nele mesmo, inves do jogador
                     inimigo_hp -= dano_viral
                     time.sleep(1)
                     print(f"{inimigo_nome} causou {dano_viral} de dano em si mesmo!")
@@ -836,13 +839,13 @@ while True:
             
                 
 
-    elif opcao == 2:    
+    elif opcao == 2:    # menu inventario
         hp, hack_ativo = usar_item(inventario, hp, hp_max, cura_bonus)
         if hack_ativo:
             hack_ativo = True
                 
     
-    elif opcao == 3:
+    elif opcao == 3: # menu de habilidades
         time.sleep(1)
         print(">> MENU DE HABILIDADES <<")
         if clas == "1":
@@ -871,14 +874,14 @@ while True:
                 viral_ativo = usar_viral(viral_ativo)
 
     elif opcao == 4:
-        time.sleep(1)
+        time.sleep(1) # status do personagem
         print(f"\n>> STATUS DE {nome_player} <<")
         time.sleep(1)
         print(f"LVL: {lvl} | HP: {hp} | FORÇA: {forca} | LVL: {lvl} | AGI: {agil}")
         time.sleep(1)
         print(f"INV: {inventario}")
 
-    if opcao == 5:
+    if opcao == 5: # sai do jogo
             time.sleep(1)
             print("Desconectando da rede...")
             break
