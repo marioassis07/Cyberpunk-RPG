@@ -1,7 +1,7 @@
 #-------- INICIO ----------
 import time
 import random
-import artes
+import arts
 
 
 
@@ -36,7 +36,7 @@ def iniciar_jogo ():
 #-------- História --------
 #cap1
 def comeco_historia():
-    import artes
+    import arts
     print("\nVocê acorda em um ferro velho.")
     time.sleep(2)
     print("\nA luz do sol te cega por alguns segundos, até realmente ver uma pilha de corpos logo adiante.")
@@ -44,8 +44,7 @@ def comeco_historia():
     print("\nSua arma, ao seu lado, tão cromada, que chega a ser doentio, totalmente suja de sangue.")
     time.sleep(2)
     if clas == "1":
-        time.sleep(3)
-        print(artes.katana)
+        print(arts.katana)
         time.sleep(4)
     print(".")
     time.sleep(2)
@@ -77,7 +76,7 @@ def comeco_historia():
     time.sleep(2)
     print("\nVocê olha um pouco mais ao seu redor e percebe que está na Zona de Exclusão Beta")
     time.sleep(2)
-    print(artes.zona_beta)
+    print(arts.zona_beta)
     time.sleep(2)
     print("\nLocal onde a M.E.R.C. tentou implantar varios sistemas militares, mas por conta de um erro, houve uma grande detonação de bombas")
     time.sleep(2)
@@ -105,13 +104,13 @@ def evento_raka():
     time.sleep(2)
     print("\n Depois de fazer uma chacina no local, você foge em direção a cidade")
     time.sleep(3)
-    print(artes.cidade)
+    print(arts.cidade)
     time.sleep(4)
     print("Ômega City")
     time.sleep(2)
     print("\nChegando na cidade, uma loja chama sua atenção. Parece bem familiar.")
     time.sleep(3)
-    print(artes.andando_cidade)
+    print(arts.andando_cidade)
     time.sleep(4)
     print(f"\n{nome_player}: Esse lugar...")
     time.sleep(2)
@@ -135,7 +134,7 @@ def evento_raka():
     time.sleep(3)
     print("\nAntes que ela possa dizer algo, uma gangue chega com um carro:")
     time.sleep(3)
-    print(artes.carro)
+    print(arts.carro)
     time.sleep(4)
     print("\nAo olhar pro lado, Syn desaparece e deixa uma mensagem dentro de um chip, no chão.")
     time.sleep(3)
@@ -145,7 +144,7 @@ def evento_raka():
     time.sleep(2)
     print("\nPor um momento você começa a lembrar o que aconteceu naquele lugar.")
     time.sleep(2)
-    print('O neurochip possuia memórias. Suas? Talvez.')
+    print('\nO neurochip possuia memórias. Suas? Talvez.')
     time.sleep(2)
     print(f"\n{nome_player}: Um protocolo? Eu fugi de algum lugar... Que lugar é esse?")
     time.sleep(3)
@@ -192,7 +191,7 @@ def evento_setor7():
     time.sleep(2)
     print("\nHelicópteros militares cortam o céu. Soldados descem em cordas.")
     time.sleep(3)
-    print(artes.heli)
+    print(arts.heli)
     time.sleep(4)
     print("\nM.E.R.C.: Alvo confirmado. Autorização de extermínio concedida.")
     time.sleep(3)
@@ -239,7 +238,9 @@ def evento_raka_chefe():
     print(f"{nome_player}: Eu nunca faria algo assim... O que eu sou? Quem sou eu?")
     time.sleep(3)
     print("\nAo entrar no centro do Setor 7, você encontra o terminal que enviou a mensagem.")
-    time.sleep(2)
+    time.sleep(3)
+    print(arts.terminal)
+    time.sleep(4)
     print("\nAo acessá-lo, arquivos começam a aparecer.")
     time.sleep(2)
     print("\nFotos... Relatórios... Experimentos....")
@@ -255,7 +256,9 @@ def evento_raka_chefe():
     print("\nVocê ouve passos atrás de você.")
     time.sleep(2)
     print("\nAo se virar:")
-    time.sleep(2)
+    time.sleep(3)
+    print(arts.Syn)
+    time.sleep(4)
     print("\nSyn: Demorou mais do que eu esperava pra você chegar aqui.")
     time.sleep(3)
     print(f"\n{nome_player}: O que é tudo isso!? Quem é você?")
@@ -301,10 +304,17 @@ def evento_final():
     print(f"\n{nome_player}.")
     time.sleep(3)
     print("\nPor enquanto.")
+    time.sleep(2)
+    print("\n Você descansa em frente ao por do sol...")
     time.sleep(3)
-    print("\n>>> FIM <<<")
+    print(arts.sol)
+    time.sleep(4)
+    print("\nAté o seu fim...")
+    time.sleep(4)
+    print("\n>>> FIM DE JOGO <<<")
     time.sleep(2)
     print("Feito por: Mário de Assis")
+    print("Artes de: asciiart.eu")
 
 #-------Criar classe -------
 def classe ():
@@ -598,13 +608,17 @@ def calculo_lvl(lvl, exp, hp, hp_max, forca, exp_inimigo):
         elif lvl == 4:
             time.sleep(1)
             print("\n>>> Você começa a recuperar fragmentos. Flashes. Rostos que não reconhece. <<<")
-    if lvl == 5 and ato == 1: # faz a mudança de capítulos
-              evento_raka()
-                
-    if lvl == 10 and ato == 2:
-        ato = 2
-        evento_setor7()
+    if lvl == 5 and ato == 1:
+        evento_raka()
         time.sleep(1)
+        print("\n>>> DIRETIVA: Chegue ao nível 10 para encontrar o Setor 7. <<<")
+
+    if lvl == 10 and ato == 1:
+         ato = 2
+         evento_setor7()
+         time.sleep(1)
+         print("\n>>> DIRETIVA: Elimine os agentes da Omnicorp e chegue ao nível 15. <<<")
+
     
     return lvl, exp, hp, hp_max, forca
 
@@ -616,7 +630,7 @@ def calculo_lvl(lvl, exp, hp, hp_max, forca, exp_inimigo):
 # ==========================================
 
 # 1. ---------Título e Criação-------
-print(artes.logo) # traz os dados de outro arquivo e printa
+print(arts.logo) # traz os dados de outro arquivo e printa
 titulo()
 
 nome_player, lvl, exp, status = iniciar_jogo()
@@ -808,7 +822,7 @@ while True:
                                         time.sleep(1)
                                         print(f"{nome_player} esquivou do ataque!")
                             else:
-                                dano_i, dado_i, _ = ataque(inimigo_nome, inimigo_forca, nome_player, forca // 3, 10)
+                                dano_i, dado_i, _ = ataque(inimigo_nome, inimigo_forca, nome_player, forca // 3, 10) # o dano inimigo sendo //3 deixará passar mais dano
                                 if dano_i > 0:
                                     time.sleep(1)
                                     print(f"{inimigo_nome} causou {dano_i} de dano!")
@@ -826,13 +840,14 @@ while True:
                                 print("[ERR0R] V0CÊ VIROU SUCATA!")
                                 print("\n1. Tentar novamente | 2. Sair")
                                 escolha = input("Escolha: ")
+                                
                                 if escolha == "1":
                                         hp = hp_salvo
                                         forca = forca_salva
                                         inventario = inventario_salvo.copy()
                                         inimigo_hp = inimigo_hp_salvo
                                         jogador_enfrentando_inimigo = True
-                                        continue
+                                      
                                 else:
                                     break
                                                             
