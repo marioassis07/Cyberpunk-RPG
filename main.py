@@ -1,30 +1,29 @@
-#-------- INICIO ----------
 import time
 import random
 import arts
-
-
-
+import sys
+def digitacao (texto, velocidade=0.05):#criando a sensação de escrita
+    for char in texto:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(velocidade)
+    print()
 
 def titulo ():
     
-    print("Bem vindo a Cyberpunk RPG!")
-    time.sleep(1)
-    print("Você deseja viver como um zé ninguém ou morrer como uma lenda?")
-    time.sleep(1)
-    print("Está pronto pra ter uma vida miserável?")
-    time.sleep(1)
+    digitacao("Bem vindo ao Cyberpunk RPG!",0.1)
+    digitacao("Você deseja viver como um zé ninguém ou morrer como uma lenda?",0.1)
+    digitacao("Está pronto pra ter uma vida miserável?",0.1)
     start = input("Digite sim para começar: ")
     if start not in ["sim", "s", "Sim", "S"]:
         time.sleep(1)
-        print("Você não tem escolha, prepare-se para o inferno! "
-        "Ass: M.E.R.C")
+        digitacao("Você não tem escolha, prepare-se para o inferno! "
+        "Ass: M.E.R.C",0.05)
     time.sleep (1)
 
 #-------- Criação de personagem -------
 def iniciar_jogo ():
-    print("Crie sua aberração cibernética: ")
-    time.sleep(1)
+    digitacao("Crie sua aberração cibernética: ",0.05)
     nome_player = input("Nome do seu personagem: ")
     time.sleep(1)
     lvl = 1
@@ -37,340 +36,320 @@ def iniciar_jogo ():
 #cap1
 def comeco_historia():
     import arts
-    print("\nVocê acorda em um ferro velho.")
-    time.sleep(2)
-    print("\nA luz do sol te cega por alguns segundos, até realmente ver uma pilha de corpos logo adiante.")
-    time.sleep(2)
-    print("\nSua arma, ao seu lado, tão cromada, que chega a ser doentio, totalmente suja de sangue.")
-    time.sleep(2)
+    digitacao("\n\033[1;37;40mVocê acorda em um ferro velho.\033[m",0.1)
+    digitacao("\n\033[1;37;40mA luz do sol te cega por alguns segundos, até realmente ver uma pilha de corpos logo adiante.\033[m",0.1)
+    digitacao("\n\033[1;37;40mSua arma, ao seu lado, tão cromada, que chega a ser doentio, totalmente suja de sangue.\033[m",0.1)
     if clas == "1":
         print(arts.katana)
         time.sleep(4)
-    print(".")
-    time.sleep(2)
-    print("..")
-    time.sleep(2)
-    print("...")
-    time.sleep(2)
-    print("\nO MEDO TE CONSOME!!!")
-    time.sleep(2)
-    print(f"\n{nome_player}: Onde estou? Quem são essas pessoas?")
-    time.sleep(2)
-    print(f"\n{nome_player} grita: TEM ALGUEM AQUI?")
-    time.sleep(2)
-    print(".")
-    time.sleep(2)
-    print("..")
-    time.sleep(2)
-    print("...")
-    time.sleep(2)
-    print("\nVocê só escuta o barulho das maquinas da região desértica...")
-    time.sleep(2)
-    print("\nAo tentar se levantar, seus implantes rangem e saem faísca.")
-    time.sleep(2)
-    print("\nVocê cai novamente.")
-    time.sleep(2)
-    print("\nAo tentar verificar sua memória: \n [ERR0R: Fr4gmentos de memór1a corr0mpidos]")
-    time.sleep(2)
-    print("\nNão há memória. Nenhuma. Só o seu nome, gravado em algum lugar fundo.")
-    time.sleep(2)
-    print("\nVocê olha um pouco mais ao seu redor e percebe que está na Zona de Exclusão Beta")
-    time.sleep(2)
-    print(arts.zona_beta)
-    time.sleep(2)
-    print("\nLocal onde a M.E.R.C. tentou implantar varios sistemas militares, mas por conta de um erro, houve uma grande detonação de bombas")
-    time.sleep(2)
-    print("\nDesde então, é apenas um local sem natureza, somente lixo, pobres e ladrões, todos buscando sobreviver.")
-    time.sleep(2)
-    print("\nDe repente, você ouve passos.")
-    time.sleep(2)
-    print("\nUma voz ao longe: \"É ele. Tá vivo. A recompensa é nossa.\"")
-    time.sleep(2)
-    print("\nRecompensa.")
-    time.sleep(2)
-    print("\nAlguém quer você morto... e pagou bem por isso")
-    time.sleep(2)
-    print("\nVocê não sabe quem, nem por quê.")
-    time.sleep(2)
-    print("\nMas a resposta está lá fora — se você conseguir sobreviver até encontrá-la.")
-    time.sleep(2)
-    print("\nDo casebre ao lado, surge o primeiro deles:")
-    time.sleep(2)
-    print("\n>>> PROTOCÓLO: Derrote os inimigos e chegue ao nível 5!!")
-    time.sleep(2)
+    digitacao('\033[1;37;40m...\033[m',0.3)
+    digitacao("\n\033[1;37;40mO MEDO TE CONSOME!!!\033[m",0.1)
+
+    digitacao(f"\n\033[1;37;40m{nome_player}: Onde estou? Quem são essas pessoas?\033[m",0.1)
+
+    digitacao(f"\n\033[1;37;40m{nome_player} grita: TEM ALGUEM AQUI?\033[m",0.1)
+
+    digitacao('\033[1;37;40m...\033[m',0.3)
+
+    digitacao("\n\033[1;37;40mVocê só escuta o barulho das maquinas da região desértica...\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mAo tentar se levantar, seus implantes rangem e saem faísca.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mVocê cai novamente.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mAo tentar verificar sua memória: \n [ERR0R: Fr4gmentos de memór1a corr0mpidos]\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mNão há memória. Nenhuma. Só o seu nome, gravado em algum lugar fundo.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mVocê olha um pouco mais ao seu redor e percebe que está na Zona de Exclusão Beta\033[m",0.05)
+
+    digitacao(arts.zona_beta,0.005)
+
+    digitacao("\n\033[1;37;40mLocal onde a M.E.R.C. tentou implantar varios sistemas militares, mas por conta de um erro, houve uma grande detonação de bombas\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mDesde então, é apenas um local sem natureza, somente lixo, pobres e ladrões, todos buscando sobreviver.\033[m")
+    digitacao("\n\033[1;37;40mDe repente, você ouve passos.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mUma voz ao longe: \"É ele. Tá vivo. A recompensa é nossa.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mRecompensa.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mAlguém quer você morto... e pagou bem por isso\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mVocê não sabe quem, nem por quê.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mMas a resposta está lá fora — se você conseguir sobreviver até encontrá-la.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mDo casebre ao lado, surge o primeiro deles:\033[m",0.05)
+
+    digitacao("\n\033[1;37;40m>>> PROTOCÓLO: Derrote os inimigos e chegue ao nível 5!!\033[m",0.05)
 #cap2
 def evento_raka():
-    print("\n...")
-    time.sleep(2)
-    print("\n Depois de fazer uma chacina no local, você foge em direção a cidade")
-    time.sleep(3)
-    print(arts.cidade)
-    time.sleep(4)
-    print("Ômega City")
-    time.sleep(2)
-    print("\nChegando na cidade, uma loja chama sua atenção. Parece bem familiar.")
-    time.sleep(3)
-    print(arts.andando_cidade)
-    time.sleep(4)
-    print(f"\n{nome_player}: Esse lugar...")
-    time.sleep(2)
-    print("\nMas, enquanto tenta se lembrar, você sente uma mão te puxar pra dentro de um beco escuro.")
-    time.sleep(2)
-    print("\nUma mulher de olhos cibernéticos te encara. Ela parece te reconhecer.")
-    time.sleep(2)
-    print("\nDesconhecida: Você não devia estar vivo.")
-    time.sleep(2)
-    print(f"\n{nome_player}: Quem é você?")
-    time.sleep(3)
-    print("\nPor algum motivo você sabe o nome dela, Syn.")
-    time.sleep(3)
-    print(f"\n{nome_player}: Seu nome é Syn?")
-    time.sleep(3)
-    print("\nSyn: Sou quem cometeu o pior dos pecados.")
-    time.sleep(3)
-    print("\nSyn: Eu ajudei a colocar esses implantes em você. Em todos vocês.")
-    time.sleep(3)
-    print("\nSyn: O que aconteceu naquela noite no laboratório, foi um acidente. Não é culpa sua.")
-    time.sleep(3)
-    print("\nAntes que ela possa dizer algo, uma gangue chega com um carro:")
-    time.sleep(3)
-    print(arts.carro)
-    time.sleep(4)
-    print("\nAo olhar pro lado, Syn desaparece e deixa uma mensagem dentro de um chip, no chão.")
-    time.sleep(3)
-    print("\nApós coloca-lo em seu slot de neurochip, uma mensagem aparece:")
-    time.sleep(3)
-    print("\n>>> SETOR 7. SOZINHO. SE QUISER SABER QUEM VOCÊ ERA. <<<")
-    time.sleep(2)
-    print("\nPor um momento você começa a lembrar o que aconteceu naquele lugar.")
-    time.sleep(2)
-    print('\nO neurochip possuia memórias. Suas? Talvez.')
-    time.sleep(2)
-    print(f"\n{nome_player}: Um protocolo? Eu fugi de algum lugar... Que lugar é esse?")
-    time.sleep(3)
-    print("\nMas, antes mesmo de você pensar, a gangue te ataca")
-    time.sleep(2)
-    print('>>> PROTOCÓLO: Derrote os inimigos e chegue ao nível 10!!')
+    digitacao("\n\033[1;37;40m...\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mDepois de fazer uma chacina no local, você foge em direção a cidade\033[m",0.05)
+
+    digitacao(arts.cidade,0.005)
+
+    digitacao("\033[1;37;40mÔmega City\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mChegando na cidade, uma loja chama sua atenção. Parece bem familiar.\033[m",0.05)
+
+    digitacao(arts.andando_cidade,0.005)
+
+    digitacao(f"\n\033[1;37;40m{nome_player}: Esse lugar...\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mMas, enquanto tenta se lembrar, você sente uma mão te puxar pra dentro de um beco escuro.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mUma mulher de olhos cibernéticos te encara. Ela parece te reconhecer.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mDesconhecida: Você não devia estar vivo.\033[m",0.05)
+
+    digitacao(f"\n\033[1;37;40m{nome_player}: Quem é você?\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mPor algum motivo você sabe o nome dela, Syn.\033[m",0.05)
+
+    digitacao(f"\n\033[1;37;40m{nome_player}: Seu nome é Syn?\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mSyn: Sou quem cometeu o pior dos pecados.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mSyn: Eu ajudei a colocar esses implantes em você. Em todos vocês.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mSyn: O que aconteceu naquela noite no laboratório, foi um acidente. Não é culpa sua.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mAntes que ela possa dizer algo, uma gangue chega com um carro:\033[m",0.05)
+
+    digitacao(arts.carro,0.005)
+
+    digitacao("\n\033[1;37;40mAo olhar pro lado, Syn desaparece e deixa uma mensagem dentro de um chip, no chão.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mApós coloca-lo em seu slot de neurochip, uma mensagem aparece:\033[m",0.05)
+
+    digitacao("\n\033[1;37;40m>>> SETOR 7. SOZINHO. SE QUISER SABER QUEM VOCÊ ERA. <<<\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mPor um momento você começa a lembrar o que aconteceu naquele lugar.\033[m",0.05)
+
+    digitacao('\n\033[1;37;40mO neurochip possuia memórias. Suas? Talvez.\033[m',0.05)
+
+    digitacao(f"\n\033[1;37;40m{nome_player}: Um protocolo? Eu fugi de algum lugar... Que lugar é esse?\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mMas, antes mesmo de você pensar, a gangue te ataca\033[m",0.05)
+
+    digitacao('\033[1;37;40m>>> PROTOCÓLO: Derrote os inimigos e chegue ao nível 10!!\033[m',0.05)
 #cap3
 def evento_setor7():
-    print("\n...")
-    time.sleep(2)
-    print("\nHá uma pilha de corpos na sua frente")
-    time.sleep(2)
-    print(f"\n{nome_player}: Melhor sair daqui, antes que a polícia apareça.")
-    time.sleep(3)
-    print("\nVocê entra na Porshe da gangue que te atacou, vasculha um pouco e acha algumas coisas.")
-    time.sleep(2)
-    print(f"\n{nome_player}: Esse carro era de um tal de V, acho que ja ouvi falar nesse nome.")
-    time.sleep(2)
-    print(f"\n{nome_player}: Talvez seja aquele cara que surgiu depois do David Martinez.")
-    time.sleep(3)
-    print("\nAlgumas horas depois...")
-    time.sleep(3)
-    print("\nVocê chega ao Setor 7.")
-    time.sleep(2)
-    print("\nO lugar parece abandonado. Mas você sente que está sendo observado.")
-    time.sleep(3)
-    print("\nDrones Omnicorp surgem de todos os lados.")
-    time.sleep(2)
-    print("\nEles sabiam que você viria.")
-    time.sleep(2)
-    print("\nUma voz ecoa pelos alto-falantes do setor:")
-    time.sleep(3)
-    print("\nDesconhecido: Você deveria ter morrido no ferro velho.")
-    time.sleep(3)
-    print(f"\n{nome_player}: Erro de vocês.")
-    time.sleep(3)
-    print("\nAo olhar o portão, você observa um simbolo...")
-    time.sleep(2)
-    print(f"\n{nome_player}: Omnicorpe... A maior corporação de tecnologia e implantes neurais da cidade.")
-    time.sleep(3)
-    print(f"\n{nome_player}Controlam os dados de milhões. Acima da lei. Acima de tudo.")
-    time.sleep(3)
-    print(f"\n{nome_player}: Poxa, só isso? Achei que vocês tinham toda aquela tecnologia imparável.")
-    time.sleep(3)
-    print("\nOs agentes Omnicorp param. Tem algo errado...")
-    time.sleep(2)
-    print("\nHelicópteros militares cortam o céu. Soldados descem em cordas.")
-    time.sleep(3)
-    print(arts.heli)
-    time.sleep(4)
-    print("\nM.E.R.C.: Alvo confirmado. Autorização de extermínio concedida.")
-    time.sleep(3)
-    print(f"\n{nome_player}: Quem são vocês? Era melhor eu ter ficado quieto.")
-    time.sleep(3)
-    print("\nM.E.R.C.: Corporação de Resposta e Execução Militar, fique parado onde está!")
-    time.sleep(3)
-    print(f"\n{nome_player}: Milícia militar privada. Sem bandeira. Sem código.")
-    time.sleep(3)
-    print(f"\n{nome_player}: Contratados para terminar o que a Omnicorp não conseguiu.")
-    time.sleep(3)
-    print(f"\n{nome_player}: Achei que vocês só matavam esses cyberpsicóticos por aí. Eu tava só de passagem.")
-    time.sleep(3)
-    print("\nEquipe de exterminio: Bravo, aqui é Delta, alvo na mira.")
-    time.sleep(3)
-    print(f"\n{nome_player}: Melhor eu correr...")
-    time.sleep(3)
-    print("\n>>> DIRETIVA: Elimine os agentes da Omnicorp e da M.E.R.C. e chegue ao nível 15. <<<")
-    time.sleep(2)
+    digitacao("\n\033[1;37;40m...\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mHá uma pilha de corpos na sua frente\033[m",0.05)
+
+    digitacao(f"\n\033[1;37;40m{nome_player}: Melhor sair daqui, antes que a polícia apareça.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mVocê entra na Porshe da gangue que te atacou, vasculha um pouco e acha algumas coisas.\033[m",0.05)
+
+    digitacao(f"\n\033[1;37;40m{nome_player}: Esse carro era de um tal de V, acho que ja ouvi falar nesse nome.\033[m",0.05)
+
+    digitacao(f"\n\033[1;37;40m{nome_player}: Talvez seja aquele cara que surgiu depois do David Martinez.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mAlgumas horas depois...\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mVocê chega ao Setor 7.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mO lugar parece abandonado. Mas você sente que está sendo observado.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mDrones Omnicorp surgem de todos os lados.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mEles sabiam que você viria.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mUma voz ecoa pelos alto-falantes do setor:\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mDesconhecido: Você deveria ter morrido no ferro velho.\033[m",0.05)
+
+    digitacao(f"\n\033[1;37;40m{nome_player}: Erro de vocês.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mAo olhar o portão, você observa um simbolo...\033[m",0.05)
+
+    digitacao(f"\n\033[1;37;40m{nome_player}: Omnicorpe... A maior corporação de tecnologia e implantes neurais da cidade.\033[m",0.05)
+
+    digitacao(f"\n\033[1;37;40m{nome_player}Controlam os dados de milhões. Acima da lei. Acima de tudo.\033[m",0.05)
+
+    digitacao(f"\n\033[1;37;40m{nome_player}: Poxa, só isso? Achei que vocês tinham toda aquela tecnologia imparável.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mOs agentes Omnicorp param. Tem algo errado...\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mHelicópteros militares cortam o céu. Soldados descem em cordas.\033[m",0.05)
+
+    digitacao(arts.heli,0.005)
+
+    digitacao("\n\033[1;37;40mM.E.R.C.: Alvo confirmado. Autorização de extermínio concedida.\033[m",0.05)
+
+    digitacao(f"\n\033[1;37;40m{nome_player}: Quem são vocês? Era melhor eu ter ficado quieto.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mM.E.R.C.: Corporação de Resposta e Execução Militar, fique parado onde está!\033[m",0.05)
+
+    digitacao(f"\n\033[1;37;40m{nome_player}: Milícia militar privada. Sem bandeira. Sem código.\033[m",0.05)
+
+    digitacao(f"\n\033[1;37;40m{nome_player}: Contratados para terminar o que a Omnicorp não conseguiu.\033[m",0.05)
+
+    digitacao(f"\n\033[1;37;40m{nome_player}: Achei que vocês só matavam esses cyberpsicóticos por aí. Eu tava só de passagem.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mEquipe de exterminio: Bravo, aqui é Delta, alvo na mira.\033[m",0.05)
+
+    digitacao(f"\n\033[1;37;40m{nome_player}: Melhor eu correr...\033[m",0.05)
+
+    digitacao("\n\033[1;37;40m>>> DIRETIVA: Elimine os agentes da Omnicorp e da M.E.R.C. e chegue ao nível 15. <<<\033[m",0.05)
 #boss fight
 def evento_raka_chefe():
-    print("\n...")
-    time.sleep(3)
-    print(f"{nome_player}: Achei que vocês fossem melhor")
-    time.sleep(3)
-    print("Um soldado ainda estava vivo, implorando pela sua vida.")
-    time.sleep(2)
-    print("Ao chegar perto, ele fala:")
-    time.sleep(2)
-    print("Soldado M.E.R.C.: Você acabou com a minha família, por que você tinha que fugir do laboratório!?")
-    time.sleep(3)
-    print(f"{nome_player}: Laboratório? Do que você está falando?")
-    time.sleep(3)
-    print("Soldado M.E.R.C.: Não se faça de idiota, seu lixo de experimento")
-    time.sleep(3)
-    print("Soldado M.E.R.C.: Vai fingir que não lembra de toda destruição que causou no Laboratório 312!?")
-    time.sleep(3)
-    print("Soldado M.E.R.C.: Minha esposa estava no meio dos cientistas, você também a matou, seu psicopata!")
-    time.sleep(3)
-    print("Soldado M.E.R.C.: Eles deviam ter deixado você morrer com todo esse cromo no seu corpo")
-    time.sleep(3)
-    print("Você fica totalmente abalado com o que ouviu e antes mesmo do soldado terminar, você o executa.")
-    time.sleep(2)
-    print(f"{nome_player}: Eu nunca faria algo assim... O que eu sou? Quem sou eu?")
-    time.sleep(3)
-    print("\nAo entrar no centro do Setor 7, você encontra o terminal que enviou a mensagem.")
-    time.sleep(3)
-    print(arts.terminal)
-    time.sleep(4)
-    print("\nAo acessá-lo, arquivos começam a aparecer.")
-    time.sleep(2)
-    print("\nFotos... Relatórios... Experimentos....")
-    time.sleep(2)
-    print("\nTodos com o seu rosto.")
-    time.sleep(2)
-    print("\nUm arquivo de voz. Sua própria voz.")
-    time.sleep(2)
-    print(f"\n{nome_player} (gravação): Se você está ouvindo isso... funcionou.")
-    time.sleep(3)
-    print(f"\n{nome_player} (gravação): Não confie em ninguém que sobreviveu àquela noite além de você.")
-    time.sleep(3)
-    print("\nVocê ouve passos atrás de você.")
-    time.sleep(2)
-    print("\nAo se virar:")
-    time.sleep(3)
-    print(arts.Syn)
-    time.sleep(4)
-    print("\nSyn: Demorou mais do que eu esperava pra você chegar aqui.")
-    time.sleep(3)
-    print(f"\n{nome_player}: O que é tudo isso!? Quem é você?")
-    time.sleep(3)
-    print("\nSyn: O que importa é o que você é.")
-    time.sleep(3)
-    print("\nSy: O primeiro a fugir, você era o mais forte dos cyberpsicóticos.")
-    time.sleep(3)
-    print("\nSyn: Então tentamos revive-lo, para trabalhar para a Omnicorp, mas deu tudo errado.")
-    time.sleep(3)
-    print("\nSyn: Você foi executado uma vez, então eu estou aqui para fazer isso de novo.")
-    time.sleep(3)
-    print("\n>>> Syn - A pecadora <<<")
-    time.sleep(2)
-    print(">>> HP: 200 | FORÇA: 20 | AGILIDADE: 16 <<<")
-    time.sleep(3)
+    digitacao("\n\033[1;37;40m...\033[m",0.05)
+
+    digitacao(f"\n\033[1;37;40m{nome_player}: Achei que vocês fossem melhores\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mUm soldado ainda estava vivo, implorando pela sua vida.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mAo chegar perto, ele fala:\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mSoldado M.E.R.C.: Você acabou com a minha família, por que você tinha que fugir do laboratório!?\033[m",0.05)
+
+    digitacao(f"\n\033[1;37;40m{nome_player}: Laboratório? Do que você está falando?\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mSoldado M.E.R.C.: Não se faça de idiota, seu lixo de experimento\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mSoldado M.E.R.C.: Vai fingir que não lembra de toda destruição que causou no Laboratório 312!?\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mSoldado M.E.R.C.: Minha esposa estava no meio dos cientistas, você também a matou, seu psicopata!\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mSoldado M.E.R.C.: Eles deviam ter deixado você morrer com todo esse cromo no seu corpo\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mVocê fica totalmente abalado com o que ouviu e antes mesmo do soldado terminar, você o executa.\033[m",0.05)
+
+    digitacao(f"\n\033[1;37;40m{nome_player}: Eu nunca faria algo assim... O que eu sou? Quem sou eu?\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mAo entrar no centro do Setor 7, você encontra o terminal que enviou a mensagem.\033[m",0.05)
+
+    digitacao(arts.terminal,0.005)
+
+    digitacao("\n\033[1;37;40mAo acessá-lo, arquivos começam a aparecer.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mFotos... Relatórios... Experimentos....\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mTodos com o seu rosto.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mUm arquivo de voz. Sua própria voz.\033[m",0.05)
+
+    digitacao(f"\n\033[1;37;40m{nome_player} (gravação): Se você está ouvindo isso... funcionou.\033[m",0.05)
+
+    digitacao(f"\n\033[1;37;40m{nome_player} (gravação): Não confie em ninguém que sobreviveu àquela noite além de você.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mVocê ouve passos atrás de você.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mAo se virar:\033[m",0.05)
+
+    digitacao(arts.Syn,0.005)
+
+    digitacao("\n\033[1;37;40mSyn: Demorou mais do que eu esperava pra você chegar aqui.\033[m",0.05)
+
+    digitacao(f"\n\033[1;37;40m{nome_player}: O que é tudo isso!? Quem é você?\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mSyn: O que importa é o que você é.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mSy: O primeiro a fugir, você era o mais forte dos cyberpsicóticos.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mSyn: Então tentamos revive-lo, para trabalhar para a Omnicorp, mas deu tudo errado.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mSyn: Você foi executado uma vez, então eu estou aqui para fazer isso de novo.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40m>>> Syn - A pecadora <<<\033[m",0.05)
+
+    digitacao("\033[1;37;40m>>> HP: 200 | FORÇA: 20 | AGILIDADE: 16 <<<",0.05)
 #fim de jogo
 def evento_final():
-    print("\n...")
-    time.sleep(2)
-    print("\nSyn cai")
-    time.sleep(2)
-    print("\nO terminal começa a piscar. Uma contagem regressiva.")
-    time.sleep(2)
-    print("\n>>> AUTODESTRUIÇÃO INICIADA — 60 SEGUNDOS <<<")
-    time.sleep(2)
-    print(f"\n{nome_player} corre.")
-    time.sleep(2)
-    print("\nAs paredes do Setor 7 colapsam atrás de você.")
-    time.sleep(2)
-    print("\nVocê escapa.")
-    time.sleep(3)
-    print("\n...")
-    time.sleep(2)
-    print("\nNa sua mão, um último arquivo do terminal.")
-    time.sleep(2)
-    print("\nVocê abre.")
-    time.sleep(2)
-    print("\n>>> PROJETO LAZARUS — STATUS: ENCERRADO <<<")
-    time.sleep(2)
-    print("\n>>> SOBREVIVENTES CONFIRMADOS: 1 <<<")
-    time.sleep(3)
-    print(f"\n{nome_player}.")
-    time.sleep(3)
-    print("\nPor enquanto.")
-    time.sleep(2)
-    print("\n Você descansa em frente ao por do sol...")
-    time.sleep(3)
-    print(arts.sol)
-    time.sleep(4)
-    print("\nAté o seu fim...")
-    time.sleep(4)
-    print("\n>>> FIM DE JOGO <<<")
-    time.sleep(2)
-    print("Feito por: Mário de Assis")
-    print("Artes de: asciiart.eu")
+    digitacao("\n\033[1;37;40m...\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mSyn cai\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mO terminal começa a piscar. Uma contagem regressiva.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40m>>> AUTODESTRUIÇÃO INICIADA — 60 SEGUNDOS <<<\033[m",0.05)
+
+    digitacao(f"\n\033[1;37;40m{nome_player} corre.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mAs paredes do Setor 7 colapsam atrás de você.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mVocê escapa.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40m...\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mNa sua mão, um último arquivo do terminal.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mVocê abre.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40m>>> PROJETO LAZARUS — STATUS: ENCERRADO <<<\033[m",0.05)
+
+    digitacao("\n\033[1;37;40m>>> SOBREVIVENTES CONFIRMADOS: 1 <<<\033[m",0.05)
+
+    digitacao(f"\n\033[1;37;40m{nome_player}.\033[m",0.05)
+
+    digitacao("\n\033[1;37;40mPor enquanto.\033[m",0.05)
+
+    digitacao("\n \033[1;37;40mVocê descansa em frente ao por do sol...\033[m",0.05)
+
+    digitacao(arts.sol,0.005)
+
+    digitacao("\n\033[1;37;40mAté o seu fim...\033[m",0.05)
+
+    digitacao("\n\033[1;37;40m>>> FIM DE JOGO <<<\033[m",0.05)
+
+    digitacao("\033[1;37;40mFeito por: Mário de Assis, Kauã Cabral\033[m",0.05)
+
+    digitacao("\033[1;37;40mArtes de: asciiart.eu\033[m",0.05)
 
 #-------Criar classe -------
 def classe ():
-    print("Escolha sua classe:")
-    time.sleep(1)
-    print("\n1- Cyber Samurai: + 2 força, 20 HP + 2 agilidade .")
-    time.sleep(2)
-    print("Habilidades: Zandatsu, Amolador de plasma")
-    time.sleep(2)
-    print("\n2- BioHacker:  25 HP, + 8 cura extra, + 3 estimulantes.")
-    time.sleep(2)
-    print("Hablidades: Seringa de adrenalina Overclock, Toxina experimental.")
-    time.sleep(2)
-    print("\n3- Netrunner: + 1 força, 15 HP + 4 agilidade")
-    time.sleep(2)
-    print("Habilidades:Software de Transmissão Viral, Chip de hack.")
-    time.sleep(2)
+    digitacao("Escolha sua classe:",0.1)
+    digitacao("\n\033[36m1- Cyber Samurai: + 2 força, 20 HP + 2 agilidade .\033[m",0.05)#classe
+
+    digitacao("\033[31mHabilidades: Zandatsu, Amolador de plasma\033[m",0.05)#habilidades
+
+    digitacao("\n\033[36m2- BioHacker:  25 HP, + 8 cura extra, + 3 estimulantes.\033[m",0.05)
+
+    digitacao("\033[31mHablidades: Seringa de adrenalina Overclock, Toxina experimental.\033[m",0.05)
+
+    digitacao("\n\033[36m3- Netrunner: + 1 força, 15 HP + 4 agilidade\033[m",0.05)
+
+    digitacao("\033[31mHabilidades:Software de Transmissão Viral, Chip de hack.\033[m",0.05)
     while True: 
         clas = input(f"Qual será a classe de {nome_player} ? ")
         if clas == "1":
-            print("Um guerreiro das ruas que trocou a honra pelo cromo.  Usa uma Katana Cromada de alta frequência, para cortar qualquer coisa")
-            time.sleep(3)
-            print("Descrição de habilidades: \nZandatsu: Capacidade de parar o tempo e fatiar o inimigo quantas vezes quiser.")
-            time.sleep(3)   
-            print("Causa morte instantanea no próximo crítico.")
-            time.sleep(3)
-            print("\nAmolador de plasma: Amolador avançado, reconstrói totalmente o fio da espada.")
-            time.sleep(3)
-            print("+ 3 de força por 5 turnos.")
-            time.sleep(3)
+            digitacao("Um guerreiro das ruas que trocou a honra pelo cromo.  Usa uma Katana Cromada de alta frequência, para cortar qualquer coisa",0.05)
+
+            digitacao("Descrição de habilidades: \n\033[31mZandatsu: Capacidade de parar o tempo e fatiar o inimigo quantas vezes quiser.\033[m",0.05)
+
+            digitacao("\033[31mCausa morte instantânea no próximo crítico.\033[m",0.05)
+
+            digitacao("\n\033[31mAmolador de plasma: Amolador avançado, reconstrói totalmente o fio da espada.\033[m",0.05)
+
+            digitacao("\033[31m+ 3 de força por 5 turnos.\033[m",0.05)
             break
         elif clas == "2":
-            print("Metade humano, metade laboratório ambulante. Hackeou o próprio corpo e sabe exatamente onde uma bala de 9mm dói mais.\nCarrega Kit Médico porque sempre precisa se remendar depois.")
-            time.sleep(3)
-            print("Descrição de habilidades: \nSeringa Overclock: Seringa de alta capacidade elétrica, fortalece os neurônios em 200%, fazendo o usuário enxergar os pontos vitais do inimigo.")
-            time.sleep(3)
-            print("+ 15 HP e crítico nos próximos 2 turnos.")
-            time.sleep(3)
-            print("\nToxina experimental: \nToxina inventada em laboratório próprio, faz todo o cromo inimigo corroer apenas ao entrar em contato.")
-            time.sleep(3)
-            print("Causa 3 de dano por 5 turnos.")
-            time.sleep(3)
+            digitacao("Metade humano, metade laboratório ambulante. Hackeou o próprio corpo e sabe exatamente onde uma bala de 9mm dói mais.\nCarrega Kit Médico porque sempre precisa se remendar depois.",0.05)
+
+            digitacao("Descrição de habilidades: \n\033[33mSeringa Overclock: Seringa de alta capacidade elétrica, fortalece os neurônios em 200%, fazendo o usuário enxergar os pontos vitais do inimigo.\033[m",0.05)
+
+            digitacao("\033[33m+ 15 HP e crítico nos próximos 2 turnos.\033[m",0.05)
+
+            digitacao("\n\033[33mToxina experimental: \nToxina inventada em laboratório próprio, faz todo o cromo inimigo corroer apenas ao entrar em contato.\033[m",0.05)
+
+            digitacao("\033[33mCausa 3 de dano por 5 turnos.\033[m",0.05)
             break
         elif clas == "3":
-            print("Vive na borda entre o mundo real e a rede. Antes de você puxar o gatilho, ele já travou seus implantes. Usa uma Pistola Furtiva e Hack Chips pra deixar você nu no sistema.")    
-            time.sleep(3)
-            print("Descrição de habilidades: \nSoftware de Transmissão Viral: Hack que infecta o sistema neural do inimigo, o fazendo atacar a sí.")
-            time.sleep(3)
-            print("O inimigo causa dano em sí no próximo turno.")
-            time.sleep(3)
-            print("Chip de hack: Implante neural que possibilita a leitura do próximo ataque inimigo.")
-            time.sleep(3)
-            print("Defende o próximo ataque inimigo.")
-            time.sleep(3)
+            digitacao("Vive na borda entre o mundo real e a rede. Antes de você puxar o gatilho, ele já travou seus implantes. Usa uma Pistola Furtiva e Hack Chips pra deixar você nu no sistema.", 0.05)
+
+            digitacao("Descrição de habilidades: \n\033[34mSoftware de Transmissão Viral: Hack que infecta o sistema neural do inimigo, o fazendo atacar a sí.\033[m", 0.05)
+
+            digitacao("\033[34mO inimigo causa dano em sí no próximo turno.\033[m", 0.05)
+
+            digitacao("\033[34mChip de hack: Implante neural que possibilita a leitura do próximo ataque inimigo.\033[m", 0.05)
+
+            digitacao("\033[34mDefende o próximo ataque inimigo.\033[m", 0.05)
             break  
         else:
             print("Digite somente 1, 2 ou 3.")
@@ -461,7 +440,7 @@ def usar_toxina(toxina_ativa):
         print(f"\n[!] Toxina já está ativa por mais {toxina_ativa} turnos.")
         return toxina_ativa
     time.sleep(1)
-    print("\nVocê avança e lança um líquido verde no inimigo.")
+    print("\nVocê avança e lança um líquido no inimigo, fazendo seus implantes derreterem!")
     time.sleep(1)
     print("[*] TOXINA ATIVA — 3 de dano por 5 turnos!")
     return 5
@@ -522,11 +501,11 @@ def ataque(atacante_nome, atacante_forca, defensor_nome, defensor_forca, crit_cl
    
     if critico:
         time.sleep(1)
-        print(f"{atacante_nome} acertou um crítico")
+        print(f"{atacante_nome} \033[31macertou um crítico\033[m")
     
     if mitigar:
         time.sleep(1)
-        print(f"{defensor_nome} usou suas habilidades para diminuir o dano")
+        print(f"{defensor_nome} \033[34musou suas habilidades para diminuir o dano\033[m")
     return dano, atacante_sorte, critico
 
 #sistema de combo
@@ -558,12 +537,12 @@ def usar_item(jogador_inventario, jogador_hp, hp_maximo, cura_bonus=0):
             cura = 5 + cura_bonus  # BioHacker cura 8, outros curam 5
             jogador_hp = min(hp_maximo, jogador_hp + cura) #soma a vida atual com a cura e não passa do maximo de hp
             time.sleep(1)
-            print(f"[*] Você injetou {item_escolhido}. HP atual: {jogador_hp}")
+            print(f"\033[36m[*] Você injetou {item_escolhido}\033[m. \033[36mHP atual: {jogador_hp}\033[m")
             jogador_inventario.pop(escolha - 1)
 
         elif "Hack Chip" in item_escolhido:
             time.sleep(1)
-            print("[*] Hack Chip ativado! Próximo ataque do inimigo será anulado.")
+            print("\033[33m[*] Hack Chip ativado! Próximo ataque do inimigo será anulado.\033[m")
             jogador_inventario.pop(escolha - 1)
             hack_ativado = True
 
@@ -597,29 +576,27 @@ def calculo_lvl(lvl, exp, hp, hp_max, forca, exp_inimigo):
         hp_max += 5
         hp = hp_max
         forca += 1
-        print(f"Você subiu para o nível {lvl}!")
-        time.sleep(1)
-        print("+5 HP max | + 1 Força")
+        digitacao(f"Você subiu para o nível \033[36m{lvl}!\033[m",0.05)
+
+        digitacao("\033[32m+5 HP max\033[m | \033[31m+ 1 Força\033[m",0.05)
 
         if lvl == 2:
-            time.sleep(1)
-            print("\n>>> Os rumores se espalharam. Mais caçadores estão vindo. <<<")
+
+            digitacao("\n\033[1;37;40m>>> Os rumores se espalharam. Mais caçadores estão vindo. <<<\033[m",0.05)
         elif lvl == 3:
-            time.sleep(1)
-            print("\n>>> Seu nome já circula no mercado negro. A recompensa aumentou. <<<")
+
+            digitacao("\n\033[1;37;40m>>> Seu nome já circula no mercado negro. A recompensa aumentou. <<<\033[m",0.05)
         elif lvl == 4:
-            time.sleep(1)
-            print("\n>>> Você começa a recuperar fragmentos. Flashes. Rostos que não reconhece. <<<")
+
+            digitacao("\n>>>\033[1;37;40m Você começa a recuperar fragmentos. Flashes. Rostos que não reconhece. <<<\033[m",0.05)
     if lvl == 5 and ato == 1:
         evento_raka()
-        time.sleep(1)
-        print("\n>>> DIRETIVA: Chegue ao nível 10 para encontrar o Setor 7. <<<")
+        digitacao("\n>>>\033[1;37;40m DIRETIVA: Chegue ao nível 10 para encontrar o Setor 7. <<<\033[m",0.05)
 
     if lvl == 10 and ato == 1:
          ato = 2
          evento_setor7()
-         time.sleep(1)
-         print("\n>>> DIRETIVA: Elimine os agentes da Omnicorp e chegue ao nível 15. <<<")
+         digitacao("\n>>>\033[1;37;40m DIRETIVA: Elimine os agentes da Omnicorp e chegue ao nível 15. <<<\033[m",0.05)
 
     
     return lvl, exp, hp, hp_max, forca
@@ -687,19 +664,18 @@ while True:
         forca_salva = forca
         inventario_salvo = inventario.copy() #salva o inventario no inicio de todo combate, para o tente novamente
         time.sleep(1)
-        print(f"\n[!] {inimigo_nome} aparece!")
-        time.sleep(1)
+        digitacao(f"\n[!] {inimigo_nome} aparece!",0.05)
 
-    print(f"\n--- {nome_player} vs {inimigo_nome} ---")
+    print(f"\n\033[36m--- {nome_player} vs {inimigo_nome} ---\033[m")
     time.sleep(1)
-    print(f"Seu HP: {hp} | HP do Inimigo: {inimigo_hp}")
+    print(f"\033[32mSeu HP: {hp}\033[m | \033[31mHP do Inimigo: {inimigo_hp}\033[m")
    
     time.sleep(1)
-    print("1. Atacar | 2. Usar item | 3. Habilidades | 4. Status. | 5. Sair")
+    print("\033[31m1. Atacar\033[m | \033[36m2. Usar item \033[m| \033[36m3. Habilidades\033[m | \033[36m4. Status.\033[m | \033[36m5. Sair\033[m")
     
     try:
         time.sleep(1)
-        opcao = int(input("Escolha sua ação: "))
+        opcao = int(input("\033[36mEscolha sua ação: \033[m"))
     except ValueError:
         time.sleep(1)
         print("Digite um número válido!")
@@ -712,7 +688,7 @@ while True:
         time.sleep(1)
         print("-------- SUA VEZ --------")
         #habilidade amolador
-        forca_atual = forca + (3 if amolador_ativo > 0 else 0) # causa o triplo de dano com o amolador
+        forca_atual = forca + (3 if amolador_ativo > 0 else 0) # cmais 3 de força
     
     # aplica seringa 
         if seringa_criticos > 0:
@@ -726,18 +702,15 @@ while True:
         else:
             dano_p, dado_p, critico = ataque(nome_player, forca_atual, inimigo_nome, inimigo_forca, crit_classe_atual)
             if zandatsu_ativo and critico:  # crítico aconteceu e o zandatsu está ativo
-                time.sleep(1)
-                print("\nO tempo congela.")
-                time.sleep(1)
-                print("Você avança em câmera lenta, fatiando o inimigo quantas vezes quiser.")
-                time.sleep(1)
-                print(f"[ZANDATSU] {nome_player} fatia {inimigo_nome} em pedaços!")
+                digitacao("\n\033[34mO tempo congela.\033[m",0.2)
+                digitacao("\033[34mVocê avança em câmera lenta\033[m, \033[34mfatiando o inimigo quantas vezes quiser..\033[m",0.1)
+                digitacao(f"\033[33m[ZANDATSU] {nome_player} fatia {inimigo_nome} em pedaços!.\033[m",0.05)
                 inimigo_hp = 0
                 zandatsu_ativo = False
             else:
                 if dano_p > 0:
                     time.sleep(1)
-                    print(f"{nome_player} causou {dano_p} de dano!")
+                    print(f"{nome_player} causou \033[31m{dano_p} de dano!\033[m")
                     inimigo_hp -= dano_p
                     if raka_ativa:
                         raka_hp = inimigo_hp
@@ -745,7 +718,7 @@ while True:
             if dano_p > 0 and combos_feitos < max_combos and tentar_combo(chance_combo):
                 combos_feitos += 1
                 time.sleep(1)
-                print(f"ATAQUE EXTRA! (Combo x{combos_feitos})")
+                print(f"\033[33mATAQUE EXTRA! (Combo x{combos_feitos})\033[m")
                 chance_combo *= 0.7 
                 if inimigo_hp <= 0:
                     if raka_ativa:#quebra o combro se o jogo chegar ao final
@@ -753,7 +726,7 @@ while True:
                         break
                     else:
                         time.sleep(1)
-                        print(f"O {inimigo_nome} foi destruído no combo!") # quebra o combo se o inimigo morrer com combo ativo
+                        print(f"\033[33mO {inimigo_nome} foi destruído no combo!\033[m") # quebra o combo se o inimigo morrer com combo ativo
                         jogador_enfrentando_inimigo = False
                         item_dropado = obter_kit()
                         if item_dropado:
@@ -765,7 +738,7 @@ while True:
 
         if inimigo_hp <= 0:
             time.sleep(1)
-            print(f"O {inimigo_nome} foi destruído!") # descontinua o combate e volta pro loop
+            print(f"\033[33m{inimigo_nome} foi destruído!\033[m") # descontinua o combate e volta pro loop
             if raka_ativa:
                 evento_final()
                 break # se for o boss vai quebrar o loop de combate e partir para o fim do jogo
@@ -788,28 +761,28 @@ while True:
                 continue
         else:
                 time.sleep(1)
-                print(f"-------- VEZ DO {inimigo_nome} --------") # se o inimigo não morrer, vai continuar o loop de combate para o inimigo
+                print(f"-------- VEZ DE {inimigo_nome} --------") # se o inimigo não morrer, vai continuar o loop de combate para o inimigo
                 # Toxina
                 if toxina_ativa > 0:
                     time.sleep(1)
-                    print(f"[*] Toxina causa 3 de dano em {inimigo_nome}!")
+                    print(f"[*] \033[32mToxina\033[m \033[32mcausa 3 de dano em {inimigo_nome}!\033[m")
                     inimigo_hp -= 3
                     toxina_ativa -= 1
                     if raka_ativa:
                         raka_hp = inimigo_hp
 
                 if viral_ativo:
-                    print(f"[*] {inimigo_nome} está sob controle do vírus e se ataca!")
+                    print(f"\033[33m[*] {inimigo_nome} está sob controle do vírus e se ataca!\033[m")
                     dano_viral, _, _ = ataque(inimigo_nome, inimigo_forca, inimigo_nome, inimigo_forca, 10) # o dano do inimigo vai ser aplicado nele mesmo, inves do jogador
                     inimigo_hp -= dano_viral
                     time.sleep(1)
-                    print(f"{inimigo_nome} causou {dano_viral} de dano em si mesmo!")
+                    print(f"\033[33m {inimigo_nome}\033[m \033[33mcausou {dano_viral} de dano em si mesmo!\033[m")
                     viral_ativo = False
                     if raka_ativa:
                         raka_hp = inimigo_hp
                     if inimigo_hp <= 0:
                         inimigo_hp = 0
-                        print(f"{inimigo_nome} foi destruído!")                            
+                        print(f"\033[33m {inimigo_nome} foi destruído!\033[m")                            
                         if raka_ativa:
                             evento_final()
                             break
@@ -818,29 +791,29 @@ while True:
                 elif not viral_ativo:
                             if hack_ativo:
                                 time.sleep(1)
-                                print(f"O hack chip preveu o ataque e você bloqueou o ataque de {inimigo_nome}!")
+                                print(f"\033[33mO hack chip preveu o ataque e você bloqueou o ataque de\033[m \033[33m{inimigo_nome}!\033[m")
                                 hack_ativo = False
                             elif tentar_esquiva(agil):
                                         time.sleep(1)
-                                        print(f"{nome_player} esquivou do ataque!")
+                                        print(f"{nome_player} \033[mesquivou do ataque!\033[m")
                             else:
-                                dano_i, dado_i, _ = ataque(inimigo_nome, inimigo_forca, nome_player, forca // 3, 10) # o dano inimigo sendo //3 deixará passar mais dano
+                                dano_i, dado_i, _ = ataque(inimigo_nome, inimigo_forca, nome_player, forca // 3, 10) # quanto menos defesa, mais dano passa, por isso a força é //3
                                 if dano_i > 0:
                                     time.sleep(1)
-                                    print(f"{inimigo_nome} causou {dano_i} de dano!")
+                                    print(f"\033[31m{inimigo_nome}\033[m \033[31mcausou {dano_i} de dano!\033[m")
                                     hp -= dano_i
 
                             if amolador_ativo > 0:
                                 amolador_ativo -= 1
                                 if amolador_ativo == 0:
                                     time.sleep(1)
-                                    print("[*] Amolador de Plasma acabou.")
+                                    print("\033[37m[*] Amolador de Plasma acabou.\033[m")
                                 
 
                             if hp <= 0:
                                 time.sleep(1)
-                                print("[ERR0R] V0CÊ VIROU SUCATA!")
-                                print("\n1. Tentar novamente | 2. Sair")
+                                print("\033[1;31;40m[ERR0R] V0CÊ VIROU SUCATA!\033[m")
+                                print("\n\033[36m1. Tentar novamente\033[m |\033[36m 2. Sair\033[m")
                                 escolha = input("Escolha: ")
                                 
                                 if escolha == "1":
@@ -864,10 +837,10 @@ while True:
     
     elif opcao == 3: # menu de habilidades
         time.sleep(1)
-        print(">> MENU DE HABILIDADES <<")
+        print("\033[33m>> MENU DE HABILIDADES <<\033[m")
         if clas == "1":
             time.sleep(1)
-            print("1. Zandatsu | 2. Amolador de Plasma")
+            print("\033[33m1. Zandatsu \033[m|\033[33m 2. Amolador de Plasma\033[m")
             hab = input("Escolha: ")
             if hab == "1":
                 usar_zandatsu()
@@ -876,7 +849,7 @@ while True:
 
         elif clas == "2":
             time.sleep(1)
-            print("1. Seringa Overclock | 2. Toxina Experimental")
+            print("\033[33m1. Seringa Overclock \033[m|\033[33m 2. Toxina Experimental\033[m")
             hab = input("Escolha: ")
             if hab == "1":
                 hp, seringa_criticos = usar_seringa(hp, hp_max, seringa_criticos)
@@ -885,20 +858,20 @@ while True:
 
         elif clas == "3":
             time.sleep(1)
-            print("1. Software Viral")
+            print("\033[33m1. Software Viral\033[m")
             hab = input("Escolha: ")
             if hab == "1":
                 viral_ativo = usar_viral(viral_ativo)
 
     elif opcao == 4:
         time.sleep(1) # status do personagem
-        print(f"\n>> STATUS DE {nome_player} <<")
+        print(f"\n\033[36m>> STATUS DE {nome_player} <<\033[m")
         time.sleep(1)
-        print(f"LVL: {lvl} | HP: {hp} | FORÇA: {forca} | LVL: {lvl} | AGI: {agil}")
+        print(f"\033[36mLVL: {lvl}\033[m | \033[36mHP: {hp} \033[m| \033[36mFORÇA: {forca}\033[m | \033[36mLVL: {lvl} \033[m| \033[36m AGI: {agil}\033[m")
         time.sleep(1)
-        print(f"INV: {inventario}")
+        print(f"\033[36mINV: {inventario}\033[m")
 
     if opcao == 5: # sai do jogo
             time.sleep(1)
-            print("Desconectando da rede...")
+            print("\033[36mDesconectando da rede...\033[m")
             break
