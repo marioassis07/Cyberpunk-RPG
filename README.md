@@ -2,7 +2,7 @@
 
 RPG Cyberpunk
 
-RPG de texto desenvolvido em Python ambientado em um universo cyberpunk repleto de megacorporações, implantes cibernéticos e conflitos urbanos. O jogador assume o papel de um mercenário em uma cidade dominada por tecnologia e decisões que podem alterar o rumo da história.
+RPG de texto desenvolvido em Python ambientado em um universo cyberpunk repleto de megacorporações, implantes cibernéticos e conflitos urbanos. O jogador assume o papel de um personagem perdido em uma cidade dominada por tecnologia e conflitos que talvez não pertencem a ele.
 
  Sobre o projeto
 
@@ -35,9 +35,10 @@ Ao iniciar:
 
 1. Digite o nome do personagem
 2. Inicie sua jornada
-3. Tome decisões durante os eventos
+3. Use os comandos usando somente os números de 1 a 5
 4. Derrote inimigos
-5. Ganhe experiência e recursos
+5. Morra muitas vezes
+6. Ganhe experiência e recursos
 
 Possíveis melhorias futuras
 
@@ -51,4 +52,4 @@ Possíveis melhorias futuras
 
 Licença
 
-Este projeto está disponível sob a licença definida pelo autor do repositório.
+Este projeto está disponível sob a licença definida pelo autor do repositório: Mário de Assis
