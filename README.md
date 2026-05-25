@@ -50,6 +50,4 @@ Possíveis melhorias futuras
 * Sistema de hacking
 * Mais inimigos
 
-Licença
-
-Este projeto está disponível sob a licença definida pelo autor do repositório: Mário de Assis
+Jogo feito por: Mário de Assis, Kauã Cabral e Danilo Moreno
