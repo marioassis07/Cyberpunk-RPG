@@ -18,7 +18,6 @@ O projeto foi desenvolvido para praticar lógica de programação e conceitos de
 Tecnologias utilizadas
 
 * Python 3
-* Programação orientada a objetos
 * Bibliotecas nativas do Python
 
 Como executar
@@ -50,4 +49,4 @@ Possíveis melhorias futuras
 * Sistema de hacking
 * Mais inimigos
 
-Jogo feito por: Mário de Assis, Kauã Cabral e Danilo Moreno
+Jogo feito por: Mário de Assis, Kauã Cabral, Danilo Moreno, Maryana Coutinho, Ian Mota, Guilherme Mauri, Deivid Neves, Marina Barbosa, Davi de Oliveira, João Vitor Ribeiro.
